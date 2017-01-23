@@ -5,6 +5,7 @@ import configureStore from './store';
 import { Provider } from 'react-redux';
 import { Router, Route, hashHistory} from 'react-router';
 import App from './app.jsx';
+import NewSubmission from './submissions/new';
 
 document.addEventListener('DOMContentLoaded', () => {
   let store;
@@ -22,6 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
       <Provider store={store}>
         <Router history={hashHistory}>
             <Route path="/" component={App}>
+              <Route path="/new-submission" component={NewSubmission} />
             </Route>
         </Router>
       </Provider>
