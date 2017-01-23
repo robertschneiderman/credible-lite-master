@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import configureStore from './store/store';
+import configureStore from './store';
 
-import Provider from 'react-redux';
-import Router from 'react-router';
+import { Provider } from 'react-redux';
+import { Router, Route, hashHistory} from 'react-router';
 import App from './app.jsx';
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const root = document.getElementById('root');
   ReactDOM.render(
       <Provider store={store}>
-        <Router>
+        <Router history={hashHistory}>
             <Route path="/" component={App}>
             </Route>
         </Router>

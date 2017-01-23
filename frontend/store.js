@@ -1,6 +1,6 @@
-import { createStore } from 'react-redux';
-import RootReducer from '../root_reducer.js';
-import RootMiddleware from '../root_middleware.js';
+import { createStore } from 'redux';
+import RootReducer from './root_reducer.js';
+import RootMiddleware from './root_middleware.js';
 
 const configureStore = (preloadedState = {}) => (
     createStore(

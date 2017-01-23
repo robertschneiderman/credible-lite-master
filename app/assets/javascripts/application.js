@@ -12,6 +12,4 @@
 //
 //= require jquery
 //= require bootstrap-sprockets
-//= require handlebars.runtime
-//= require index
 //= require bundle

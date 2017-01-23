@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-const App = ({props}) => (
+const App = (props) => (
     <div className="app">
         {props.children}
     </div>
