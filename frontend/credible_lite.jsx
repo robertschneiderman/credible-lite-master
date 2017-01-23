@@ -5,7 +5,7 @@ import configureStore from './store';
 import { Provider } from 'react-redux';
 import { Router, Route, hashHistory} from 'react-router';
 import App from './app.jsx';
-import NewSubmission from './submissions/new';
+import NewSubmission from './submissions/components/new';
 
 document.addEventListener('DOMContentLoaded', () => {
   let store;
