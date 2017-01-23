@@ -1,0 +1,32 @@
+{
+  "name": "credible-lite-master",
+  "version": "1.0.0",
+  "description": "The application in this repository simulates one of Credible's main flows, Borrower Prequalification. It consists of a form to collect basic Borrower and Loan information that generates a list of Loans that the Borrower is eligible for from the different Lenders on the platform.",
+  "main": "index.js",
+  "dependencies": {
+    "babel-core": "^6.22.1",
+    "babel": "^6.5.2",
+    "babel-loader": "^6.2.10",
+    "react": "^15.4.2",
+    "react-redux": "^5.0.2",
+    "react-router": "^3.0.2",
+    "redux": "^3.6.0",
+    "webpack": "^1.14.0",
+    "webpack-dev-server": "^1.16.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js -d"    
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/robertschneiderman/credible-lite-master.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/robertschneiderman/credible-lite-master/issues"
+  },
+  "homepage": "https://github.com/robertschneiderman/credible-lite-master#readme"
+}
