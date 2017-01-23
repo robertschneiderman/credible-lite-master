@@ -13,6 +13,8 @@ const SubmissionMiddleware = ({dispatch}) => next => action => {
         dispatch(actions.receiveSubmission(res.data));
     };
     switch (action.type) {
+        case 'GET_SUBMISSIONS':
+            API.createSubmission(action.payload, success);        
         case 'MAKE_SUBMISSION':
             API.createSubmission(action.payload, success);
             return next(action);

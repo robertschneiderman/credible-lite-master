@@ -10,9 +10,8 @@ class Results extends Component {
     componentWillMount() {
         let submissions = localStorage.getItem('submissions');
         submissions = submissions ? JSON.parse(submissions) : [];
-        debugger;
         submissions.forEach(submission => {
-            this.props.getOffers(submission.id);
+            this.props.getOffers(submission);
         });
     }
     

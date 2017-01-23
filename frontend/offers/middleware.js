@@ -5,11 +5,12 @@ import {router, hashHistory} from 'react-router';
 const offersMiddleware = ({dispatch}) => next => action => {
 
     const success = res => {
-        dispatch(actions.receiveOffers(res));
+        debugger;        
+        dispatch(actions.receiveOffers(res.data.offers));
     };
     switch (action.type) {
-        case 'getOffers':
-            API.get(action.payload, success);
+        case 'GET_OFFERS':
+            API.getOffers(action.payload, success);
             return next(action);
         default:
             return next(action);

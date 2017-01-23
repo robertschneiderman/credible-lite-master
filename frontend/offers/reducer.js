@@ -7,7 +7,7 @@ let defaultState = {};
 const offerReducer = (state = defaultState, action) => {
     let newState;
     switch (action.type) {
-        case 'GET_OFFERS':
+        case 'RECEIVE_OFFERS':
             return merge(state, {}, action.payload);
         default:
             return state;
