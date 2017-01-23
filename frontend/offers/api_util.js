@@ -1,6 +1,6 @@
 import axios from 'axios';
 
 export const getOffers = (param, success) => {
-    axios.post(`localhost:3000/tasks`, param)
+    axios.get(`localhost:3000/offers`)
     .then(success);
 };

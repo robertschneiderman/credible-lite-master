@@ -5,11 +5,15 @@ import {router, hashHistory} from 'react-router';
 const SubmissionMiddleware = ({dispatch}) => next => action => {
 
     const success = res => {
+        // debugger;
+        let submissions = localStorage.getItem('submissions');
+        submissions = submissions ? JSON.parse(submissions) : [];
+        submissions.push(res.data.id);
+        localStorage.setItem('submissions', JSON.stringify(submissions));
         dispatch(actions.receiveSubmission(res.data));
     };
     switch (action.type) {
         case 'MAKE_SUBMISSION':
-        debugger;
             API.createSubmission(action.payload, success);
             return next(action);
         default:

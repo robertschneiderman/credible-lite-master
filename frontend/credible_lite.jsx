@@ -9,14 +9,11 @@ import NewSubmission from './submissions/components/new';
 
 document.addEventListener('DOMContentLoaded', () => {
   let store;
-  if (window.currentUser) {
-    const initialState = {session: {currentUser: window.currentUser}};
-    store = configureStore(initialState);
-  } else {
-    store = configureStore();
-  }
+  store = configureStore();
+  // window.store = store; 
 
-  window.store = store;  
+  // window.localStorage.set('offers', [8]);
+  // window.localStorage.get('offers'); 
 
   const root = document.getElementById('root');
   ReactDOM.render(
