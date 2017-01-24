@@ -8,6 +8,10 @@ class Api::SubmissionsController < ApplicationApiController
     @submission
   end
 
+  def index
+    @submissions = Submission.all.to_a
+  end
+
   def show
     @submission = Submission.find(params[:id])
   end

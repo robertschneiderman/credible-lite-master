@@ -9,7 +9,7 @@ const offersMiddleware = ({dispatch}) => next => action => {
         dispatch(actions.receiveOffers(res.data.offers));
     };
     switch (action.type) {
-        case 'GET_OFFERS':
+        case 'REQUEST_OFFERS':
             API.getOffers(action.payload, success);
             return next(action);
         default:

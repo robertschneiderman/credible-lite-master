@@ -8,11 +8,7 @@ class Results extends Component {
     }
 
     componentWillMount() {
-        let submissions = localStorage.getItem('submissions');
-        submissions = submissions ? JSON.parse(submissions) : [];
-        submissions.forEach(submission => {
-            this.props.getOffers(submission);
-        });
+        this.props.getSubmissionsThenOffers();
     }
     
     render() {
@@ -32,7 +28,7 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => ({
-    getOffers: payload => dispatch(actions.getOffers(payload))
+    getSubmissionsThenOffers: payload => dispatch(actions.getSubmissionsThenOffers(payload))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Results);
