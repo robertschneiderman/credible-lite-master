@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import * as actions from '../offers/actions';
+import * as offersActions from '../../offers/actions';
+import * as selectedOffersActions from '../../selected_offers/actions';
 
 class Results extends Component {
     constructor(props) {
@@ -8,7 +9,9 @@ class Results extends Component {
         this.state = {
             selectedOffers: []
         };
+
         this.selectRow = this.selectRow.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     componentWillMount() {
@@ -19,13 +22,17 @@ class Results extends Component {
         let selectedOffers = this.state.selectedOffers;
         let row = e.target.parentElement;
         if (row.className === 'offer') {
-            selectedOffers.concat([offer]);
+            selectedOffers = selectedOffers.concat([offer]);
             row.className = 'offer selected';
         } else {
-            selectedOffers.filter(selectedOffer => selectedOffer.id !== offer.id);
+            selectedOffers = selectedOffers.filter(selectedOffer => selectedOffer.id !== offer.id);
             row.className = 'offer';            
         }
         this.setState({selectedOffers});
+    }
+
+    handleSubmit() {
+        this.props.selectOffers(this.state.selectedOffers);
     }
 
     renderOffers() {
@@ -43,16 +50,19 @@ class Results extends Component {
     }
     render() {
         return(
-            <table className="results">
-                <tr>
-                    <th>APR</th>              
-                    <th>Monthly Payment</th>              
-                    <th>Term</th>              
-                    <th>Total Cost</th>              
-                    <th>Total Interest</th>
-                </tr>
-                {this.renderOffers()}
-            </table>
+            <div className="results-page">
+                <table className="results">
+                    <tr>
+                        <th>APR</th>              
+                        <th>Monthly Payment</th>              
+                        <th>Term</th>              
+                        <th>Total Cost</th>              
+                        <th>Total Interest</th>
+                    </tr>
+                    {this.renderOffers()}
+                </table>
+                <button onClick={this.handleSubmit}className="btn-results">Compare Offers</button>
+            </div>
         );
     }
 }
@@ -65,7 +75,8 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = dispatch => ({
-    getSubmissionsThenOffers: payload => dispatch(actions.getSubmissionsThenOffers(payload))
+    getSubmissionsThenOffers: payload => dispatch(offersActions.getSubmissionsThenOffers(payload)),
+    selectOffers: payload => dispatch(selectedOffersActions.selectOffers(payload))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Results);
