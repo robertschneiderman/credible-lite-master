@@ -2,14 +2,22 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import * as actions from '../actions';
 
+// import {BarChart} from 'react-chartjs';
+
 class SelectedOffers extends Component {
     constructor(props) {
         super(props);
     }
 
+    componentDidMount() {
+        let selectedOffers = this.props.selectedOffers ? this.props.selectedOffers : JSON.parse(localStorage.getItem('selectedOffers'));
+        localStorage.setItem('selectedOffers', JSON.stringify(selectedOffers));
+    }
+
     renderSelectedOffers() {
-        return this.props.selectedOffers.map(offer => {
-            return <li className="selected-offer">{offer.monthly_payment}</li>;
+        let selectedOffers = (this.props.selectedOffers.length === 0) ? JSON.parse(localStorage.getItem('selectedOffers')) : this.props.selectedOffers;
+        return selectedOffers.map(offer => {
+            return <li className="selected-offer" >{offer.monthly_payment}</li>;
         });
     }
 
