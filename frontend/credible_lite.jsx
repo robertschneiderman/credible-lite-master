@@ -10,7 +10,7 @@ import NewSubmission from './submissions/components/new';
 document.addEventListener('DOMContentLoaded', () => {
   let store;
   store = configureStore();
-  // window.store = store; 
+  window.store = store; 
 
   // window.localStorage.set('offers', [8]);
   // window.localStorage.get('offers'); 

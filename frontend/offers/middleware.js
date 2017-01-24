@@ -5,7 +5,6 @@ import {router, hashHistory} from 'react-router';
 const offersMiddleware = ({dispatch}) => next => action => {
 
     const success = res => {
-        debugger;        
         dispatch(actions.receiveOffers(res.data.offers));
     };
     switch (action.type) {

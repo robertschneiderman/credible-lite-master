@@ -1,15 +1,17 @@
 import { applyMiddleware } from 'redux';
-import logger from 'redux-logger';
+import createLogger from 'redux-logger';
 import thunk from 'redux-thunk';
 
 import submissions from './submissions/middleware';
 import offers from './offers/middleware';
 
+const logger = createLogger();
+
 const RootMiddleware = applyMiddleware(
-  logger(),
   thunk,
   submissions,
-  offers
+  offers,
+  logger
 );
 
 export default RootMiddleware;
