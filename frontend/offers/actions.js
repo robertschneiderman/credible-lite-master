@@ -6,9 +6,14 @@ export const getSubmissionsThenOffers = payload => {
         axios.get(`http://localhost:3000/api/submissions`).then(
             submissions => {
                 // debugger;
-                submissions = [submissions.data];
-                submissions.forEach(submission => {
+                [submissions.data].forEach(submission => {
                     dispatch(requestOffers(submission.id));
+                    // axios.get(`http://localhost:3000/api/submissions/${submission.id}/offers.json`).then((offers) => {
+                    //     debugger;
+                    // }            
+                // submissions = [submissions.data];
+                // });
+                    // );
                 });
             }
         );

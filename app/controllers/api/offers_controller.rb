@@ -1,6 +1,6 @@
 class Api::OffersController < ApplicationApiController
   def index
-    @offers = submission.offers
+    @offers = submission.offers.joins(product: :lender).select('offers.*, products.term, lenders.name')
   end
 
 protected
