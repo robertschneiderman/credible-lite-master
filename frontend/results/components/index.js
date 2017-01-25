@@ -39,9 +39,10 @@ class Results extends Component {
         return this.props.offers.map(offer => {
             return (
                 <tr onClick={(e) => this.selectRow(e, offer)} className="offer" key={offer.id}>
+                    <td>{offer.name}</td>
+                    <td>{offer.term}</td>
                     <td>{offer.apr}</td>
                     <td>{offer.monthly_payment}</td>
-                    <td>{offer.term}</td>
                     <td>{offer.total_cost}</td>
                     <td>{offer.total_interest}</td>
                 </tr>
@@ -53,9 +54,10 @@ class Results extends Component {
             <div className="results-page">
                 <table className="results">
                     <tr>
+                        <th>Lender's Name</th>              
+                        <th>Product Term</th>              
                         <th>APR</th>              
                         <th>Monthly Payment</th>              
-                        <th>Term</th>              
                         <th>Total Cost</th>              
                         <th>Total Interest</th>
                     </tr>

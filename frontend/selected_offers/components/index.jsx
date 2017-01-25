@@ -44,7 +44,7 @@ class SelectedOffers extends Component {
         // debugger;
         selectedOffers.forEach((offer, i) => {
                 data.datasets[0].data.push(offer[key]);
-                data.labels.push(`offer ${i+1}`);
+                data.labels.push(`${offer.name} - Term: ${offer.term}`);
         });
 
         let options = {
@@ -70,10 +70,7 @@ class SelectedOffers extends Component {
                     {this.renderSelectedOffers("apr")}
                 </div>
                 <div className="fb space-between">
-                    {this.renderSelectedOffers("term")}
                     {this.renderSelectedOffers("total_cost")}
-                </div>
-                <div className="fb space-between">
                     {this.renderSelectedOffers("total_interest")}
                 </div>
             </div>
