@@ -54,6 +54,7 @@ th.reactable-header-sortable:after {
 }
 
 th.reactable-header-sort-desc, th.reactable-header-sort-asc {
+    outline: 0;
   background-color: #fffcab;
     /*color: #777;  */
 }

@@ -97,7 +97,7 @@ class Results extends Component {
 
         return(
             <div className="results-page">
-            <Table className="results" data={data} sortable={true} />            
+            <Table className="results" data={data} sortable={true} filterable={['Name']} filterPlaceholder="Filter by lender" />            
             <button onClick={this.handleSubmit}className="btn-results">Compare Offers</button>
             </div>
         );
