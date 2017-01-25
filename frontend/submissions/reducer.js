@@ -8,6 +8,7 @@ const SubmissionReducer = (state = defaultState, action) => {
     let newState;
     switch (action.type) {
         case 'RECEIVE_SUBMISSION':
+            hashHistory.push('/offers');
             return merge(state, {}, action.payload);
         default:
             return state;

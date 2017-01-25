@@ -31,7 +31,7 @@ class NewSubmission extends Component {
 
     handleSubmission(e) {
         e.preventDefault();
-        debugger;
+        this.props.reset();
         this.props.makeSubmission(this.props.values);
     }
 
@@ -80,7 +80,7 @@ class NewSubmission extends Component {
                         <Field name="amount" placeholder="Loan Amount" component={renderField} type="number" required onChange={(e) => this.updateField(e)} />
                     </div>
 
-                        <button onClick={(e) => this.handleSubmission(e)} type="submit" className="btn btn-default">Get my rates!</button>
+                        <button onClick={(e) => this.handleSubmission(e)} disabled={!this.props.valid} type="submit" className="btn btn-default">Get my rates!</button>
                     </form>
                 </div>
                 </div>            
@@ -90,6 +90,7 @@ class NewSubmission extends Component {
 }
 
 const mapStateToProps = state => ({
+    form: state.form,
     values: state.form.submission.values
 });
 
