@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
       <Provider store={store}>
         <Router history={hashHistory}>
             <Route path="/" component={App}>
-              <Route path="/results" component={Results} />
+              <Route path="/offers" component={Results} />
               <Route path="/new-submission" component={NewSubmission} />
               <Route path="/selected-offers" component={SelectedOffers} />
             </Route>
