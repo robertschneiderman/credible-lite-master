@@ -12,4 +12,4 @@
 //
 //= require jquery
 //= require bootstrap-sprockets
-//= require bundle
+//= require ./bundle
