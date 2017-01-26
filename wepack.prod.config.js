@@ -4,7 +4,7 @@ var webpack = require('webpack');
 config.plugins.push(
   new webpack.DefinePlugin({
     "process.env": {
-      "HEROKU_ENV": JSON.stringify("production")
+      "NODE_ENV": JSON.stringify("production")
     }
   })
 );
