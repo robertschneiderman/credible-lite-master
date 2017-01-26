@@ -40595,7 +40595,7 @@
 /* 489 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
+	/* WEBPACK VAR INJECTION */(function(process) {"use strict";
 	
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
@@ -40608,13 +40608,16 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
+	var rootUrl = process.env.RAILS_ENV !== "production" ? "http://localhost:3000" : "https://credible-lite2.herokuapp.com";
+	
 	var getSubmissions = exports.getSubmissions = function getSubmissions(data, success) {
-	    _axios2.default.get('http://localhost:3000/api/submissions.json').then(success);
+	    _axios2.default.get(rootUrl + "/api/submissions.json").then(success);
 	};
 	
 	var createSubmission = exports.createSubmission = function createSubmission(data, success) {
-	    _axios2.default.post('http://localhost:3000/api/submissions', data).then(success);
+	    _axios2.default.post(rootUrl + "/api/submissions", data).then(success);
 	};
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
 /* 490 */
@@ -42175,7 +42178,7 @@
 /* 517 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
+	/* WEBPACK VAR INJECTION */(function(process) {"use strict";
 	
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
@@ -42188,15 +42191,18 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
+	var rootUrl = process.env.RAILS_ENV !== "production" ? "http://localhost:3000" : "https://credible-lite2.herokuapp.com";
+	
 	var getOffers = exports.getOffers = function getOffers(param, success) {
-	    _axios2.default.get('http://localhost:3000/api/submissions/' + param + '/offers.json').then(success);
+	    _axios2.default.get(rootUrl + "/api/submissions/" + param + "/offers.json").then(success);
 	};
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
 /* 518 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
+	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
@@ -42211,17 +42217,13 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
+	var rootUrl = process.env.RAILS_ENV !== "production" ? "http://localhost:3000" : "https://credible-lite2.herokuapp.com";
+	
 	var getSubmissionsThenOffers = exports.getSubmissionsThenOffers = function getSubmissionsThenOffers(payload) {
 	    return function (dispatch) {
-	        _axios2.default.get('http://localhost:3000/api/submissions').then(function (submissions) {
+	        _axios2.default.get(rootUrl + '/api/submissions').then(function (submissions) {
 	            submissions.data.submissions.forEach(function (submission) {
 	                dispatch(requestOffers(submission.id));
-	                // axios.get(`http://localhost:3000/api/submissions/${submission.id}/offers.json`).then((offers) => {
-	                //     debugger;
-	                // }            
-	                // submissions = [submissions.data];
-	                // });
-	                // );
 	            });
 	        });
 	    };
@@ -42240,6 +42242,7 @@
 	        payload: payload
 	    };
 	};
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
 /* 519 */

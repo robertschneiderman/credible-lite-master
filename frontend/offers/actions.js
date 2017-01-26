@@ -1,18 +1,14 @@
 import axios from 'axios';
 import { getSubmissions } from '../submissions/actions';
 
+let rootUrl = (process.env.RAILS_ENV !== "production") ? "http://localhost:3000" : "https://credible-lite2.herokuapp.com";
+
 export const getSubmissionsThenOffers = payload => {
     return function(dispatch) {
-        axios.get(`http://localhost:3000/api/submissions`).then(
+        axios.get(`${rootUrl}/api/submissions`).then(
             submissions => {
                 submissions.data.submissions.forEach(submission => {
                     dispatch(requestOffers(submission.id));
-                    // axios.get(`http://localhost:3000/api/submissions/${submission.id}/offers.json`).then((offers) => {
-                    //     debugger;
-                    // }            
-                // submissions = [submissions.data];
-                // });
-                    // );
                 });
             }
         );
