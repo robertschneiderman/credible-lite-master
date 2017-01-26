@@ -40608,7 +40608,7 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var rootUrl = process.env.RAILS_ENV !== "production" ? "http://localhost:3000" : "https://credible-lite2.herokuapp.com";
+	var rootUrl = process.env.HEROKU_ENV !== "production" ? "http://localhost:3000" : "https://credible-lite2.herokuapp.com";
 	
 	var getSubmissions = exports.getSubmissions = function getSubmissions(data, success) {
 	    _axios2.default.get(rootUrl + "/api/submissions.json").then(success);
@@ -42191,7 +42191,7 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var rootUrl = process.env.RAILS_ENV !== "production" ? "http://localhost:3000" : "https://credible-lite2.herokuapp.com";
+	var rootUrl = process.env.HEROKU_ENV !== "production" ? "http://localhost:3000" : "https://credible-lite2.herokuapp.com";
 	
 	var getOffers = exports.getOffers = function getOffers(param, success) {
 	    _axios2.default.get(rootUrl + "/api/submissions/" + param + "/offers.json").then(success);
@@ -42217,7 +42217,7 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var rootUrl = process.env.RAILS_ENV !== "production" ? "http://localhost:3000" : "https://credible-lite2.herokuapp.com";
+	var rootUrl = process.env.HEROKU_ENV !== "production" ? "http://localhost:3000" : "https://credible-lite2.herokuapp.com";
 	
 	var getSubmissionsThenOffers = exports.getSubmissionsThenOffers = function getSubmissionsThenOffers(payload) {
 	    return function (dispatch) {

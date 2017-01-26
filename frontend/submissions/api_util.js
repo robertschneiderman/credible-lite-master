@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-let rootUrl = (process.env.RAILS_ENV !== "production") ? "http://localhost:3000" : "https://credible-lite2.herokuapp.com";
+let rootUrl = (process.env.HEROKU_ENV !== "production") ? "http://localhost:3000" : "https://credible-lite2.herokuapp.com";
 
 export const getSubmissions = (data, success) => {
     axios.get(`${rootUrl}/api/submissions.json`)

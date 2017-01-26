@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { getSubmissions } from '../submissions/actions';
 
-let rootUrl = (process.env.RAILS_ENV !== "production") ? "http://localhost:3000" : "https://credible-lite2.herokuapp.com";
+let rootUrl = (process.env.HEROKU_ENV !== "production") ? "http://localhost:3000" : "https://credible-lite2.herokuapp.com";
 
 export const getSubmissionsThenOffers = payload => {
     return function(dispatch) {
