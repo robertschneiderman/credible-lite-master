@@ -11,6 +11,7 @@ const SelectedOffersReducer = (state = defaultState, action) => {
             // router.push({
             //     pathname: '/selected-offers'
             // });
+            debugger;
 
             hashHistory.push('/selected-offers');
                 

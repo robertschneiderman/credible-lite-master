@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import * as actions from '../actions';
+import { router, hashHistory } from 'react-router';
 
 import {Bar} from 'react-chartjs';
 
@@ -18,6 +19,7 @@ const titleCase = (str) => {
 class SelectedOffers extends Component {
     constructor(props) {
         super(props);
+        this.backToOffers = this.backToOffers.bind(this);
     }
 
     componentDidMount() {
@@ -32,12 +34,20 @@ class SelectedOffers extends Component {
             datasets: [{
                 data: [],
                 backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(54, 162, 235, 0.2)'
+                    'rgba(255, 99, 132, 0.5)',
+                    'rgba(54, 162, 235, 0.5)',
+                    'rgba(255, 206, 86, 0.5)',
+                    'rgba(75, 192, 192, 0.5)',
+                    'rgba(153, 102, 255, 0.5)',
+                    'rgba(255, 159, 64, 0.5)'
                 ],
                 fillColor: [
-                    'rgba(255,99,132,1)',
-                    'rgba(54, 162, 235, 1)',
+                'rgba(255, 99, 132, 0.5)',
+                'rgba(54, 162, 235, 0.5)',
+                'rgba(255, 206, 86, 0.5)',
+                'rgba(75, 192, 192, 0.5)',
+                'rgba(153, 102, 255, 0.5)',
+                'rgba(255, 159, 64, 0.5)'
                 ],         
             }]
         };
@@ -60,10 +70,14 @@ class SelectedOffers extends Component {
         );
     }
 
+    backToOffers() {
+        hashHistory.push('/offers');
+    }
+
     render() {
         return(
             <div className="selected-offers">
-
+                <p className="back-button" onClick={this.backToOffers}>&lt;-- Compare other offers</p>
                 <div className="fb space-between">
                     {this.renderSelectedOffers("Monthly Payment")}
                     {this.renderSelectedOffers("Apr")}

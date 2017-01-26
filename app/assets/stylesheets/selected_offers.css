@@ -2,6 +2,7 @@
     max-width: 1300px;
     width: 90%;
     margin: 0 auto;
+    padding: 2rem 0;
 }
 
 .selected-offers div:nth-child(1) {
@@ -10,4 +11,9 @@
 
 .graph {
 
+}
+
+.back-button {
+   color: #87b3ca;
+   cursor: pointer;
 }
