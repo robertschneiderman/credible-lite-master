@@ -1,0 +1,42 @@
+.header {
+    padding: 1rem 2rem;
+    background-color: #2F5587;
+}
+
+.navbar-logo {
+    display: block;
+    text-decoration: none;
+    line-height: 3.2;
+    color: #fff;
+}
+
+.navbar-logo-svg {
+    width: 10rem;
+margin-right: 0.7rem;
+    top: 0.6rem;    
+}
+
+.navbar-logo-text {
+    top: 0.4rem;
+    font-size: 1.3rem;    
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.navbar-nav {
+    list-style: none;
+    top: 0.6rem;    
+}
+
+.navbar-item {
+    display: inline-block;
+    margin-right: 1rem;
+}
+
+.nav-link {
+    color: #fff;
+    text-decoration: none;
+}

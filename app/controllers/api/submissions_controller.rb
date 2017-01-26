@@ -1,7 +1,6 @@
 class Api::SubmissionsController < ApplicationApiController
   def create
     Submission.transaction do
-      # debugger;
       @submission = Submission.create!(create_params)
       @submission.calculate_products!
     end

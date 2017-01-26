@@ -2,6 +2,8 @@
 
 *= require defaults
 *= require helpers
+*= require header
+*= require submissions
 *= require offers
 *= require selected_offers
 

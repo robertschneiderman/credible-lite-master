@@ -8,8 +8,8 @@ const offerReducer = (state = defaultState, action) => {
     let newState;
     switch (action.type) {
         case 'RECEIVE_OFFERS':
-            newState = [];
-            return merge([], state, action.payload);
+            newState = merge([], state);
+            return action.payload.concat(newState);
         default:
             return state;
     }

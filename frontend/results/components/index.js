@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {Table} from 'reactable';
+import {Table, Tr, Td} from 'reactable';
 import * as offersActions from '../../offers/actions';
 import * as selectedOffersActions from '../../selected_offers/actions';
 
@@ -79,26 +79,37 @@ class Results extends Component {
             return rows;
         }
     }
+
+    renderColumns(datum) {
+        let columns = [];
+        for (let key in datum) {
+            columns.push(<Td column={key}>datum[key]</Td>);
+        }
+        return columns;
+    }
+
+    renderRows(data) {
+        if (data) {
+            return data.map(datum => {
+                return (
+                    <Tr data={datum} className="offer" onClick={(e) => this.selectRow(e, datum)} />
+                );
+            });
+        }
+    }
     
     render() {
-                // <table className="results">
-                //     <tr>
-                //         <th>Lender's Name</th>              
-                //         <th>Product Term</th>              
-                //         <th>APR</th>              
-                //         <th>Monthly Payment</th>              
-                //         <th>Total Cost</th>              
-                //         <th>Total Interest</th>
-                //     </tr>
-                //     {this.renderOffers()}
-                // </table>
-
         let data = this.beautifyData(this.props.offers);
-
+        
         return(
             <div className="results-page">
-            <Table className="results" data={data} sortable={true} filterable={['Name']} filterPlaceholder="Filter by lender" />            
-            <button onClick={this.handleSubmit}className="btn-results">Compare Offers</button>
+            <h3 className="offers-subheading">click row to select offer</h3>
+            <Table className="results" sortable={true} filterable={['Name']} filterPlaceholder="Filter by lender">
+                {this.renderRows(data)}
+            </Table>            
+            <div className="btn-container">
+                <button onClick={this.handleSubmit}className="btn-default btn-results">Compare Offers</button>
+            </div>
             </div>
         );
     }

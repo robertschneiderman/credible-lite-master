@@ -1,4 +1,9 @@
 * {
     position: relative;
-    box-sizing: border-box
+    box-sizing: border-box;
+    font-family: "Lato";
+}
+
+body {
+    margin: 0;
 }

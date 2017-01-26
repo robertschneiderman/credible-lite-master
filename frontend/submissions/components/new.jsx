@@ -5,12 +5,12 @@ import * as actions from '../actions';
 import { Field, reduxForm } from 'redux-form';
 
 
-const renderField = ({ input, label, valuee, type, name, placeholder, onChange, meta: { touched, error, warning } }) => (
+const renderField = ({ input, label, className, valuee, type, name, placeholder, onChange, meta: { touched, error, warning } }) => (
   <div>
     <label>{label}</label>
     <div>
-      <input {...input} placeholder={placeholder} type={type} value={valuee} />
-      {touched && ((error && <span>{error}</span>) || (warning && <span>{warning}</span>))}
+      <input {...input} placeholder={placeholder} className={className} type={type} value={valuee} />
+      {touched && ((error && <span className="form-error">{error}</span>) || (warning && <span>{warning}</span>))}
     </div>
   </div>
 );
@@ -39,7 +39,7 @@ class NewSubmission extends Component {
         return(
             <div className="new-submission">
                 <div className="page-header">
-                <h1>Loan Submission <small>Get your rates!</small></h1>
+                <h1 className="submission-headline">Loan Submission - <small>Get your rates!</small></h1>
                 </div>
 
                 <div className="row">
@@ -62,22 +62,22 @@ class NewSubmission extends Component {
 
                     <div className="form-group">
                         <label for="ssn">SSN</label>
-                        <Field name="ssn" placeholder="SSN" component={renderField} type="password" required onChange={(e) => this.updateField(e)} />                        
+                        <Field name="ssn" className="shortened" placeholder="SSN" component={renderField} type="password" required onChange={(e) => this.updateField(e)} />                        
                     </div>
 
                     <div className="form-group">
                         <label for="income">Yearly Income</label>
-                        <Field name="income" placeholder="Yearly Income" component={renderField} type="number" required onChange={(e) => this.updateField(e)} />      
+                        <Field name="income" className="shortened" placeholder="Yearly Income" component={renderField} type="number" required onChange={(e) => this.updateField(e)} />      
                     </div>
 
                     <div className="form-group">
                         <label for="credit_score">Credit Score</label>
-                        <Field name="credit_score" placeholder="Credit Score" component={renderField} type="number" required onChange={(e) => this.updateField(e)} />
+                        <Field name="credit_score" className="shortened" placeholder="Credit Score" component={renderField} type="number" required onChange={(e) => this.updateField(e)} />
                     </div>
 
                     <div className="form-group">
                         <label for="amount">Loan Amount</label>
-                        <Field name="amount" placeholder="Loan Amount" component={renderField} type="number" required onChange={(e) => this.updateField(e)} />
+                        <Field name="amount" className="shortened" placeholder="Loan Amount" component={renderField} type="number" required onChange={(e) => this.updateField(e)} />
                     </div>
 
                         <button onClick={(e) => this.handleSubmission(e)} disabled={!this.props.valid} type="submit" className="btn btn-default">Get my rates!</button>
