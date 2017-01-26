@@ -40595,7 +40595,7 @@
 /* 489 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(process) {"use strict";
+	"use strict";
 	
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
@@ -40608,7 +40608,7 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var rootUrl = process.env.NODE_ENV !== "production" ? "http://localhost:3000" : "https://credible-lite2.herokuapp.com";
+	var rootUrl = "https://credible-lite2.herokuapp.com";
 	
 	var getSubmissions = exports.getSubmissions = function getSubmissions(data, success) {
 	    _axios2.default.get(rootUrl + "/api/submissions.json").then(success);
@@ -40617,7 +40617,6 @@
 	var createSubmission = exports.createSubmission = function createSubmission(data, success) {
 	    _axios2.default.post(rootUrl + "/api/submissions", data).then(success);
 	};
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
 /* 490 */
@@ -42178,7 +42177,7 @@
 /* 517 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(process) {"use strict";
+	"use strict";
 	
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
@@ -42191,18 +42190,17 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var rootUrl = process.env.NODE_ENV !== "production" ? "http://localhost:3000" : "https://credible-lite2.herokuapp.com";
+	var rootUrl = "https://credible-lite2.herokuapp.com";
 	
 	var getOffers = exports.getOffers = function getOffers(param, success) {
 	    _axios2.default.get(rootUrl + "/api/submissions/" + param + "/offers.json").then(success);
 	};
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
 /* 518 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
+	'use strict';
 	
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
@@ -42217,7 +42215,7 @@
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
-	var rootUrl = process.env.NODE_ENV !== "production" ? "http://localhost:3000" : "https://credible-lite2.herokuapp.com";
+	var rootUrl = "https://credible-lite2.herokuapp.com";
 	
 	var getSubmissionsThenOffers = exports.getSubmissionsThenOffers = function getSubmissionsThenOffers(payload) {
 	    return function (dispatch) {
@@ -42242,7 +42240,6 @@
 	        payload: payload
 	    };
 	};
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
 /* 519 */
