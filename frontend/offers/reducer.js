@@ -10,6 +10,8 @@ const offerReducer = (state = defaultState, action) => {
         case 'RECEIVE_OFFERS':
             newState = merge([], state);
             return action.payload.concat(newState);
+        case 'CLEAR_OFFERS':
+            return [];            
         default:
             return state;
     }

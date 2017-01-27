@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // window.localStorage.set('offers', [8]);
   // window.localStorage.get('offers'); 
+  
 
   const root = document.getElementById('root');
   ReactDOM.render(

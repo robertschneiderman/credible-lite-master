@@ -25,3 +25,8 @@ export const receiveOffers = payload => ({
     type: 'RECEIVE_OFFERS',
     payload
 });
+
+export const clearOffers = payload => ({
+    type: 'CLEAR_OFFERS',
+    payload
+});

@@ -44,9 +44,6 @@ class Results extends Component {
         this.setState({selectedOffers});
     }
 
-    handleSubmit() {
-        this.props.selectOffers(this.state.selectedOffers);
-    }
 
     renderOffers() {
         return this.props.offers.map(offer => {
@@ -80,6 +77,11 @@ class Results extends Component {
         }
     }
 
+    handleSubmit() {
+        this.props.clearOffers();
+        this.props.selectOffers(this.state.selectedOffers);
+    }
+
     renderColumns(datum) {
         let columns = [];
         for (let key in datum) {
@@ -103,13 +105,14 @@ class Results extends Component {
         
         return(
             <div className="results-page">
-            <h3 className="offers-subheading">click row to select offer</h3>
-            <Table className="results" sortable={true} filterable={['Name']} filterPlaceholder="Filter by lender">
-                {this.renderRows(data)}
-            </Table>            
-            <div className="btn-container">
-                <button onClick={this.handleSubmit}className="btn-default btn-results">Compare Offers</button>
-            </div>
+                <h3 className="offers-subheading">click row to select offer</h3>
+                <Table className="results" sortable={true} filterable={['Name']} filterPlaceholder="Filter by lender">
+                    {this.renderRows(data)}
+                </Table>            
+                <div className="btn-container">
+                    <button onClick={this.handleSubmit}className="btn-default btn-results">Compare Offers</button>
+                </div>
+                {this.props.children}
             </div>
         );
     }
@@ -124,7 +127,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => ({
     getSubmissionsThenOffers: payload => dispatch(offersActions.getSubmissionsThenOffers(payload)),
-    selectOffers: payload => dispatch(selectedOffersActions.selectOffers(payload))
+    selectOffers: payload => dispatch(selectedOffersActions.selectOffers(payload)),
+    clearOffers: () => dispatch(offersActions.clearOffers())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Results);

@@ -88,6 +88,7 @@
 	  // window.localStorage.set('offers', [8]);
 	  // window.localStorage.get('offers'); 
 	
+	
 	  var root = document.getElementById('root');
 	  _reactDom2.default.render(_react2.default.createElement(
 	    _reactRedux.Provider,
@@ -39561,6 +39562,8 @@
 	        case 'RECEIVE_OFFERS':
 	            newState = (0, _merge2.default)([], state);
 	            return action.payload.concat(newState);
+	        case 'CLEAR_OFFERS':
+	            return [];
 	        default:
 	            return state;
 	    }
@@ -39602,8 +39605,6 @@
 	            // router.push({
 	            //     pathname: '/selected-offers'
 	            // });
-	            debugger;
-	
 	            _reactRouter.hashHistory.push('/selected-offers');
 	
 	            return (0, _merge2.default)([], state, action.payload);
@@ -42205,7 +42206,7 @@
 	Object.defineProperty(exports, "__esModule", {
 	    value: true
 	});
-	exports.receiveOffers = exports.requestOffers = exports.getSubmissionsThenOffers = undefined;
+	exports.clearOffers = exports.receiveOffers = exports.requestOffers = exports.getSubmissionsThenOffers = undefined;
 	
 	var _axios = __webpack_require__(490);
 	
@@ -42237,6 +42238,13 @@
 	var receiveOffers = exports.receiveOffers = function receiveOffers(payload) {
 	    return {
 	        type: 'RECEIVE_OFFERS',
+	        payload: payload
+	    };
+	};
+	
+	var clearOffers = exports.clearOffers = function clearOffers(payload) {
+	    return {
+	        type: 'CLEAR_OFFERS',
 	        payload: payload
 	    };
 	};
@@ -42451,11 +42459,6 @@
 	            this.setState({ selectedOffers: selectedOffers });
 	        }
 	    }, {
-	        key: 'handleSubmit',
-	        value: function handleSubmit() {
-	            this.props.selectOffers(this.state.selectedOffers);
-	        }
-	    }, {
 	        key: 'renderOffers',
 	        value: function renderOffers() {
 	            var _this2 = this;
@@ -42524,6 +42527,12 @@
 	            }
 	        }
 	    }, {
+	        key: 'handleSubmit',
+	        value: function handleSubmit() {
+	            this.props.clearOffers();
+	            this.props.selectOffers(this.state.selectedOffers);
+	        }
+	    }, {
 	        key: 'renderColumns',
 	        value: function renderColumns(datum) {
 	            var columns = [];
@@ -42575,7 +42584,8 @@
 	                        { onClick: this.handleSubmit, className: 'btn-default btn-results' },
 	                        'Compare Offers'
 	                    )
-	                )
+	                ),
+	                this.props.children
 	            );
 	        }
 	    }]);
@@ -42598,6 +42608,9 @@
 	        },
 	        selectOffers: function selectOffers(payload) {
 	            return dispatch(selectedOffersActions.selectOffers(payload));
+	        },
+	        clearOffers: function clearOffers() {
+	            return dispatch(offersActions.clearOffers());
 	        }
 	    };
 	};
