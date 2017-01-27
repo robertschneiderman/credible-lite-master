@@ -31,6 +31,11 @@ class Results extends Component {
         this.props.getSubmissionsThenOffers();
     }
 
+    componentDidUnmount() {
+        this.props.clearOffers();
+    }
+
+
     selectRow(e, offer) {
         let selectedOffers = this.state.selectedOffers;
         let row = e.target.parentElement;
@@ -78,7 +83,6 @@ class Results extends Component {
     }
 
     handleSubmit() {
-        this.props.clearOffers();
         this.props.selectOffers(this.state.selectedOffers);
     }
 

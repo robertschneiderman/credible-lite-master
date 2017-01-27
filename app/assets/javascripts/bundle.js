@@ -42443,6 +42443,11 @@
 	            this.props.getSubmissionsThenOffers();
 	        }
 	    }, {
+	        key: 'componentDidUnmount',
+	        value: function componentDidUnmount() {
+	            this.props.clearOffers();
+	        }
+	    }, {
 	        key: 'selectRow',
 	        value: function selectRow(e, offer) {
 	            var selectedOffers = this.state.selectedOffers;
@@ -42529,7 +42534,6 @@
 	    }, {
 	        key: 'handleSubmit',
 	        value: function handleSubmit() {
-	            this.props.clearOffers();
 	            this.props.selectOffers(this.state.selectedOffers);
 	        }
 	    }, {
